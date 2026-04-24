@@ -39,9 +39,9 @@ describe('ExperienceCard', () => {
     })
   })
 
-  it('applies green left border style when isFirst=true', () => {
-    const { container } = render(<ExperienceCard item={mockItem} isFirst />)
+  it('applies green border on hover', () => {
+    const { container } = render(<ExperienceCard item={mockItem} />)
     const card = container.firstChild as HTMLElement
-    expect(card.getAttribute('style')).toContain('var(--green)')
+    expect(card.getAttribute('style')).toContain('var(--border)')
   })
 })

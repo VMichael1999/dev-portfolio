@@ -13,7 +13,7 @@ export function Experience({ items }: ExperienceProps) {
         <SectionHeader subtitle="// Trayectoria" title="Experiencia Profesional" />
         <div className="space-y-5">
           {items.map((item, idx) => (
-            <ExperienceCard key={idx} item={item} isFirst={idx === 0} />
+            <ExperienceCard key={idx} item={item} />
           ))}
         </div>
       </div>
