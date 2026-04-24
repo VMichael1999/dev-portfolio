@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --green: #00d4ff;
+  --green-dim: rgba(0, 212, 255, 0.10);
+  --green-border: rgba(0, 212, 255, 0.25);
+  --green-glow: rgba(0, 212, 255, 0.08);
+  --bg: #0a0d12;
+  --bg-card: #111520;
+  --bg-card-2: #161c2a;
+  --text: #e2e8f0;
+  --text-muted: #64748b;
+  --border: rgba(255, 255, 255, 0.07);
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { width: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green-border); border-radius: 3px; }
+
+/* Selection */
+::selection { background: var(--green-dim); color: var(--green); }
+
+/* Global section spacing */
+.section-py { padding: 6rem 0; }
+
+/* Terminal window chrome */
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.dot-red   { background: #ff5f57; }
+.dot-yellow{ background: #febc2e; }
+.dot-green { background: #28c840; }
+
+/* Mono font helper */
+.font-mono { font-family: var(--mono); }
+
+/* Green glow effect */
+.green-glow {
+  box-shadow: 0 0 20px var(--green-glow), 0 0 60px rgba(57,255,20,0.04);
+}
+
+/* Animate fade-in-up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* Blink cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '|';
+  color: var(--green);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
