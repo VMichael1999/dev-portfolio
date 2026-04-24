@@ -2,10 +2,9 @@ import type { ExperienceItem } from '@/types/portfolio.types'
 
 interface ExperienceCardProps {
   item: ExperienceItem
-  isFirst?: boolean
 }
 
-export function ExperienceCard({ item, isFirst = false }: ExperienceCardProps) {
+export function ExperienceCard({ item }: ExperienceCardProps) {
   return (
     <div
       className="relative rounded-xl p-6 transition-all duration-200"
